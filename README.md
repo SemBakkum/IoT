@@ -7,3 +7,7 @@ This repository contains the file for the IoT assignments.
 
 Folder IoT > IoT setup > IoTsetup.ino
 
+#### Channel
+
+[Channel source](https://thingspeak.com/channels/106599)
+
