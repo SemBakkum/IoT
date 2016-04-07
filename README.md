@@ -9,5 +9,5 @@ Folder IoT > IoT setup > IoTsetup.ino
 
 #### Channel
 
-[Channel source](https://thingspeak.com/channels/106599)
+[Channel source ThingSpeak](https://thingspeak.com/channels/106599)
 
