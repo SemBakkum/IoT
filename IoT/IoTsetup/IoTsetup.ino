@@ -13,14 +13,14 @@ int val = 0;
 int light = 0;
 
 //Define client
-const char* ssid = "iPhone van Sem";
-const char* password = "blabla123";
+const char* ssid = "TerraNet";
+const char* password = "1544LD94";
 WiFiClient client;
 
 //IoT keys for parameters
 EIoTCloudRestApi eiotcloud;
-#define AP_SSID "iPhone van Sem"
-#define AP_PASSWORD "blabla123"
+#define AP_SSID "TerraNet"
+#define AP_PASSWORD "1544LD94"
 #define INSTANCE_ID_A "57050ad2c943a0661cf314bd/RmSlColKN8pO0S0p"
 #define INSTANCE_ID_B "57050ad2c943a0661cf314bd/3SgN4763USVbpHTo"
 
