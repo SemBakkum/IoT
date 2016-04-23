@@ -32,8 +32,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     fclose($file);
   }
 
+
   $content = json_decode(file_get_contents('door.json'));
   $doorStatus = $content->door;
+}
   ?>
 
   <html>  
