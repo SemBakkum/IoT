@@ -874,7 +874,9 @@ $.ajax({
 ?>
 ```
 
-I used some JavaScript and chart.js to make a chart which displays the data and [moment.js](http://momentjs.com/docs/) to translate the timestamps to readable text. How to get started on that you can visit the [chart.js](http://www.chartjs.org/docs/) website.
+I used some JavaScript and chart.js to make a chart which displays the data and [moment.js](http://momentjs.com/docs/) to translate the timestamps to readable text. How to get started on that you can visit the [chart.js](http://www.chartjs.org/docs/) website. Eventually this is what it looks like.
+
+![Outcome](images/browser.png "Browser")
 
 ## Referance
 
@@ -887,3 +889,6 @@ I used some JavaScript and chart.js to make a chart which displays the data and 
 4. [HTTP:](https://github.com/esp8266/Arduino/blob/master/libraries/ESP8266HTTPClient/examples/BasicHttpClient/BasicHttpClient.ino) This link helped me set up the POST and GET request I needed to do to the server. Without this library and the example code I wouldn't be able to let my project rely on user input.
 
 5. [JSON:](https://github.com/bblanchon/ArduinoJson/blob/master/examples/JsonParserExample/JsonParserExample.ino) This link helped me decode the door.json value in my NodeMCU code to a string. Thanks to this library the user can turn of the alarm in the browser and my NodeMCU can react to this via the GET request.
+
+Eventually I espacially want to thank [kasszz](https://github.com/kasszz) for helping me with setting up the millis() function and [reauv](https://github.com/reauv/minor-web-app-from-scratch) for helping me with the PHP. 
+
