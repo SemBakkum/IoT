@@ -5,6 +5,7 @@
 
 // The sound played is from https://www.arduino.cc/en/tutorial/melody
 // The code to trigger the door sensor is from http://www.instructables.com/id/Magnetic-Door-Sensor-and-Arduino/
+// The code to connect the esp to your own WiFi or hotspot is from http://blog.nyl.io/esp8266-led-arduino/
 
 // Connection to the pins used on the esp.
 const int switchPin = D1;
