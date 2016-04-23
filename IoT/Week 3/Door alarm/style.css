@@ -1,0 +1,68 @@
+body{
+	background-color: #fafafa;
+	font-family: Lato, Helvetica, Arial, sans-serif;
+}
+
+.content-wrapper{
+	margin: 0 auto;
+	width: 70%;
+}
+
+.melding{
+	background: #ededed;
+	padding: 2rem;
+	text-align: center;
+	color: #333;
+	border-radius: .2rem;
+	border-bottom: .3rem solid #19c589;
+	margin-bottom: 1rem;
+}
+
+.btns{
+	display: flex;
+}
+
+.btnOn{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 50%;
+	height: 5rem;
+	background: #19c589;
+	font-size: 1.2em;
+	border-radius: .2rem;
+	margin-right: 1rem;
+	text-decoration: none;
+}
+
+.btnOn > a{
+	text-decoration: none;
+	color: #fff;
+}
+
+.btnOff{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 5rem;
+	background: #19c589;
+	font-size: 1.2em;
+	border-radius: .2rem;
+	color: #fff;
+	text-decoration: none;
+}
+
+.btnOff > a{
+	text-decoration: none;
+	color: #fff;
+}
+
+#chart{
+	text-align: center;
+}
+
+#myChart{
+	width: 100%;
+	height: 60%;
+}
