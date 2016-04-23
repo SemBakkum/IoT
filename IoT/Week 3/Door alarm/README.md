@@ -357,6 +357,9 @@ For this setup I made us of the following link [here.](https://github.com/esp826
 
 To use this code you should include the #include <ESP8266WiFi.h> library. You can use your own hotspot or home WiFi to connect to with the following code.
 ```javascript
+// Libraries used in the code
+#include <ESP8266WiFi.h>
+
 const int switchPin = D1; // Here we say to which pin the door switch is connected.
 const int ledPin = D2; // Here we say to which pin the LED is connected.
 int speakerPin = D3; // Here we say the buzzer or piezo is connected to pin D3.
