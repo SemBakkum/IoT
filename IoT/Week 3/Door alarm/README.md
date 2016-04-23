@@ -355,7 +355,7 @@ So we declared a playCount=0; This keeps track how many times the sound played o
 
 For this setup I made us of the following link [here.](https://github.com/esp8266/Arduino/blob/master/libraries/ESP8266WiFi/examples/WiFiClientBasic/WiFiClientBasic.ino).
 
-To use this code you should include the #include <ESP8266WiFi.h> library. You can use your own hotspot or home WiFi to connect to with the following code.
+To use this code you should include the ESP8266WiFi.h library. You can use your own hotspot or home WiFi to connect to with the following code.
 ```javascript
 // Libraries used in the code
 #include <ESP8266WiFi.h>
