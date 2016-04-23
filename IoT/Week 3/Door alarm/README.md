@@ -217,7 +217,7 @@ void loop() {
     	digitalWrite(ledPin, LOW);
   }
   
-	// If the door has been open longer than 5 sec. it is okay to set of the alarm. 
+	// If the door has been open longer than 5 sec. it is okay to set off the alarm. 
   	if(currentMillis - openMillis >= interval && isOpen){
     
      	digitalWrite(ledPin, HIGH);
@@ -239,6 +239,119 @@ void loop() {
 
 So we set the currentMillis and the openMillis to 0. Once the code starts in the void loop() currentMillis becomes millis.
 We also use a check "isOpen" that can be true or false. So what we do here is say if the door is open and the boolean isOpen is true, then set isOpen to true and set openMillis, that was declared to be zero, to currentMillis. At this point currentMillis is still running and openMillis just copies the time it was given from that point. So if the door is open and the boolean isOpen is true we can do our mathmetical calculation and that goes as following. If currentMillis - openMillis is bigger or the same as interval (which we have set to be 5000) and isOpen (which is been set to true) are all true you can let the alarm go off. If we want to wait longer for the alarm to go off we can just set the interval state to a bigger number, lets say 7000. Then the alarm will wait 7 seconds before going off.
+
+We can eventually say that we want the sound the play normal twice and after the second time speed it up. To accomplish this we add some extra code we'va already written and add a few extra things. The code below show how this can be achieved. 
+
+```javascript
+const int switchPin = D1; // Here we say to which pin the door switch is connected.
+const int ledPin = D2; // Here we say to which pin the LED is connected.
+int speakerPin = D3; // Here we say the buzzer or piezo is connected to pin D3.
+
+// The melody declarations.
+int length = 15; // the number of notes
+char notes[] = "ccggaagffeeddc "; // a space represents a rest
+int beats[] = { 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 2, 4 };
+int tempo = 300;
+
+// Interval is how long we wait for the alarm to go off.
+int interval=5000;
+
+// Tracks the time since last event fired.
+unsigned long currentMillis=0;
+unsigned long openMillis=0;
+
+// Check if the door is open.
+boolean isOpen = false;
+
+// The amount of times the melody has been played.
+int playCount=0;
+
+void playTone(int tone, int duration) {
+  for (long i = 0; i < duration * 1000L; i += tone * 2) {
+    digitalWrite(speakerPin, HIGH);
+    delayMicroseconds(tone);
+    digitalWrite(speakerPin, LOW);
+    delayMicroseconds(tone);
+  }
+}
+
+void playNote(char note, int duration) {
+  char names[] = { 'c', 'd', 'e', 'f', 'g', 'a', 'b', 'C' };
+  int tones[] = { 1915, 1700, 1519, 1432, 1275, 1136, 1014, 956 };
+
+  // play the tone corresponding to the note name
+  for (int i = 0; i < 8; i++) {
+    if (names[i] == note) {
+      playTone(tones[i], duration);
+    }
+  }
+}
+
+void setup() {
+
+	pinMode(switchPin, INPUT_PULLUP);
+
+	pinMode(ledPin, OUTPUT);
+
+	digitalWrite(switchPin, HIGH);
+
+	pinMode(speakerPin, OUTPUT);
+
+}
+
+void loop() {
+	
+	// Here we declare that the current time is going to be millis(), so this is the point that millis starts running.
+	currentMillis = millis();
+
+	if(digitalRead(switchPin) == HIGH && !isOpen) {
+    	isOpen = true;
+    	openMillis = currentMillis;
+  }
+
+  if(digitalRead(switchPin) == LOW && isOpen) {
+    	isOpen = false;
+    	digitalWrite(ledPin, LOW);
+    	playCount=0;
+  }
+  
+	// If the door has been open longer than 5 sec. it is okay to set off the alarm. 
+  	if(currentMillis - openMillis >= interval && isOpen){
+    	
+    	playCount++;
+     	digitalWrite(ledPin, HIGH);
+     	for (int i = 0; i < length; i++) {
+      	if(digitalRead(switchPin) == HIGH && playCount <=2) {
+        	if (notes[i] == ' ') {
+          	delay(beats[i] * tempo); // rest
+        } else {
+          	playNote(notes[i], beats[i] * tempo);
+        }
+        // pause between notes
+        delay(tempo / 2); 
+      }
+     }
+  }
+
+  if(playCount >=2){ 
+    	for (int i = 0; i < length; i++) {
+      	if(digitalRead(switchPin) == HIGH) {
+        	if (notes[i] == ' ') {
+          	delay(beats[i] * tempo); // rest
+        } else {
+          	playNote(notes[i], beats[i] * tempo / 2);
+        }
+        // pause between notes
+        delay(tempo / 2); 
+      }
+     }     
+  }
+}
+```
+
+So we declared a playCount=0; This keeps track how many times the sound played or alarm went off. Each time the door is closed playCount is set to 0, but if the door is open and the alarm starts playinh we increase playCount by 1. When playCount is 2 we can use the new piece of code to play the alarm faster. In that if statement we check if playCount is equal to or bigger than 2 if that is true we play the alarm sound but we play it twice as fast. As you can see we can do this by dividing temp by 2. 
+
+
 
 
 
