@@ -1,3 +1,4 @@
+// Libraries we need to make a connection to WiFi, decode JSON and use HTTP.
 #include <ESP8266WiFi.h>
 #include <ArduinoJson.h>
 #include <ESP8266HTTPClient.h>
@@ -5,30 +6,39 @@
 // The sound played is from https://www.arduino.cc/en/tutorial/melody
 // The code to trigger the door sensor is from http://www.instructables.com/id/Magnetic-Door-Sensor-and-Arduino/
 
+// Connection to the pins used on the esp.
 const int switchPin = D1;
 const int ledPin = D2;
 int speakerPin = D3;
-int length = 15; //het aantal noten
-char notes[] = "ccggaagffeeddc "; //een spatie vertegenwoordigd een moment van rust
-int beats[] = { 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 2, 4 };
-int tempo = 300;
-unsigned long currentMillis=0;
-// Interval is how long we wait
-// add const if this should never change
-int interval=5000;
-int interval2=30000;
-// Tracks the time since last event fired
-unsigned long openMillis=0;
-boolean isOpen = false;
-int playCount=0;
-unsigned long currentAlarm=0;
-unsigned long previousAlarm=0;
 
+
+int length = 15; // Number of notes.
+char notes[] = "ccggaagffeeddc "; // A space represents a rest.
+int beats[] = { 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 2, 4 };
+int tempo = 300; // The speed at which the melody is played.
+
+// Interval is how long we wait.
+int interval=5000;
+
+// Tracks the time since last event fired
+unsigned long currentMillis=0;
+unsigned long openMillis=0;
+
+// Check if the door is open.
+boolean isOpen = false;
+
+// The amount of times the melody has been played.
+int playCount=0;
+
+// Connection to WiFi.
 const char* ssid     = "iPhone van Sem";
 const char* password = "bakkumpie321";
+
+// The hosts we're using for the GET and the POST request.
 String host = "http://www.sembakkum.nl/IoT/";
 String host2 = "http://www.sembakkum.nl/IoT/door.json";
 
+// Functions to play the melody.
 void playTone(int tone, int duration) {
   for (long i = 0; i < duration * 1000L; i += tone * 2) {
     digitalWrite(speakerPin, HIGH);
@@ -50,8 +60,10 @@ void playNote(char note, int duration) {
   }
 }
 
+
 HTTPClient http;
 
+// Function to POST the door value to the server, this can be 0(door closed) or 1(door open).
 void sendValue(int value) {
   Serial.println(value);
   http.begin(host);
@@ -72,6 +84,7 @@ void sendValue(int value) {
   http.end();
 }
 
+// Function to GET the door value from the server, this is a JSON format so this is where we use the JSON library.
 String getValue() {
   http.begin(host2);
   int httpCode = http.GET();
@@ -127,7 +140,6 @@ void setup() {
 void loop() {
 
   currentMillis = millis();
-  currentAlarm = millis();
   delay(1000);
   String doorStatus;
   doorStatus = getValue();
@@ -149,7 +161,8 @@ void loop() {
   }
 
   Serial.println(doorStatus);
-
+  
+// If the door has been open longer than 5 sec. it is okay to set of the alarm. 
   if(currentMillis - openMillis >= interval && isOpen && doorStatus == String("open")){
     
      digitalWrite(ledPin, HIGH);
