@@ -32,8 +32,8 @@ boolean isOpen = false;
 int playCount=0;
 
 // Connection to WiFi.
-const char* ssid     = "iPhone van Sem";
-const char* password = "bakkumpie321";
+const char* ssid     = "********";
+const char* password = "********";
 
 // The hosts we're using for the GET and the POST request.
 String host = "http://www.sembakkum.nl/IoT/";
