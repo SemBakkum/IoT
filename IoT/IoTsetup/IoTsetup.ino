@@ -13,8 +13,8 @@ int val = 0;
 int light = 0;
 
 //Define client
-const char* ssid = "TerraNet";
-const char* password = "1544LD94";
+const char* ssid = "*************";
+const char* password = "*************";
 WiFiClient client;
 
 //IoT keys for parameters
