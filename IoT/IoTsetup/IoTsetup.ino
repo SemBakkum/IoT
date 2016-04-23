@@ -19,14 +19,14 @@ WiFiClient client;
 
 //IoT keys for parameters
 EIoTCloudRestApi eiotcloud;
-#define AP_SSID "TerraNet"
-#define AP_PASSWORD "1544LD94"
-#define INSTANCE_ID_A "57050ad2c943a0661cf314bd/RmSlColKN8pO0S0p"
-#define INSTANCE_ID_B "57050ad2c943a0661cf314bd/3SgN4763USVbpHTo"
+#define AP_SSID "******"
+#define AP_PASSWORD "******"
+#define INSTANCE_ID_A "*************"
+#define INSTANCE_ID_B "*************"
 
 //ThingSpeak ID and API key
-unsigned long CHANNEL_ID  = 106599;
-const char * API_KEY = "AMAY11E5C366A496";
+unsigned long CHANNEL_ID  = ******;
+const char * API_KEY = "*************";
 
 void setup() {
   
