@@ -1,11 +1,13 @@
 #Make your own door alarm.
 ## To keep anyone from forgetting to close it.
 
-At the end of this readme you will have your very own door alarm which you can monitor through a server.
+The purpose of this project is a thing that annoyed me about my mother. Most of the times when she goes to do some work in the garden she leaves the open. Now if we would live in a country where there is always nice weather this wouldn't be a problem, but we don't. So I thought why not build an alarm that lets her know that she left the door open to long and it is starting to get cold inside. The end result made me write this manual for the ones intrested in such a alarm.
+
+At the end of this readme/manual you will have your very own door alarm which you can monitor through a server/browser.
 
 The outcome will look something like this. 
 
-![Outcome](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Door alarm")
+![Outcome](images/complete.jpg "Door alarm")
 
 ### The hardware
 
@@ -24,7 +26,7 @@ To connect the door switch to the NodeMCU and let a LED ligth up when the door i
 
 In this tutorial the switch is connected to an Arduino board, but we're connection it to an NodeMCU so the first thing we should change is the pin number our door switch and LED are connected to. In the image below I connected the door switch to pin (orange jumper wires) D1 and the LED to pin D2. We connect them to the D pins because these sensors give us digital in/output. The black jumper wires are connected to the ground. 
 
-![Step 1](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Turn on LED when door is open")
+![Step 1](images/doorLed.jpg "Turn on LED when door is open")
 
 The following code lets us accomplish the first step. 
 
@@ -63,7 +65,7 @@ void loop() {
 
 Connecting the buzzer or piezo is quite easy. Just look at the photo below and you can manage to succeed.
 
-![Buzzer piezo](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Buzzer, piezo connection")
+![Buzzer piezo](images/buzzer.jpg "Buzzer, piezo connection")
 
 I connected the Buzzer, piezo to pin D3 and to the ground of the breadboard. The next step is to let it produce some sounds for us and how we do that will be treated in step 3.
 
@@ -872,34 +874,16 @@ $.ajax({
 ?>
 ```
 
-I used some JavaScript and chart.js to make a chart which displays the data. How to get started on that you can visit the [chart.js](http://www.chartjs.org/docs/) website.
+I used some JavaScript and chart.js to make a chart which displays the data and [moment.js](http://momentjs.com/docs/) to translate the timestamps to readable text. How to get started on that you can visit the [chart.js](http://www.chartjs.org/docs/) website.
 
 ## Referance
 
-http://www.instructables.com/id/Magnetic-Door-Sensor-and-Arduino/?ALLSTEPS
-https://www.arduino.cc/en/tutorial/melody
-https://github.com/esp8266/Arduino/blob/master/libraries/ESP8266WiFi/examples/WiFiClientBasic/WiFiClientBasic.ino
-http://www.chartjs.org/docs/
-https://github.com/esp8266/Arduino/blob/master/libraries/ESP8266HTTPClient/examples/BasicHttpClient/BasicHttpClient.ino
-https://github.com/bblanchon/ArduinoJson/blob/master/examples/JsonParserExample/JsonParserExample.ino
+1. [Door sensor.](http://www.instructables.com/id/Magnetic-Door-Sensor-and-Arduino/?ALLSTEPS) This link helped me to start this project. This manual described how you can turn a led on or off depending if the door is opened or closed. Great link to get you started and now it is basically the foundation of my alarm.
 
+2. [Melody.](https://www.arduino.cc/en/tutorial/melody) This link helped me to let my buzzer play a sound. It is a standard code I found at the arduino website and this is the sound you here when my alarm goes off. 
 
+3. [Wifi](https://github.com/esp8266/Arduino/blob/master/libraries/ESP8266WiFi/examples/WiFiClientBasic/WiFiClientBasic.ino) This link helped me set up my WiFi connection from the NodeMCU to the hotspot I made with my smartphone. Without this piece of code my connection to the server wouldn't even be possible. 
 
+4. [HTTP](https://github.com/esp8266/Arduino/blob/master/libraries/ESP8266HTTPClient/examples/BasicHttpClient/BasicHttpClient.ino) This link helped me set up the POST and GET request I needed to do to the server. Without this library and the example code I wouldn't be able to let my project rely on user input.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+5. [JSON](https://github.com/bblanchon/ArduinoJson/blob/master/examples/JsonParserExample/JsonParserExample.ino) This link helped me decode the door.json value in my NodeMCU code to a string. Thanks to this library the user can turn of the alarm in the browser and my NodeMCU can react to this via the GET request.
