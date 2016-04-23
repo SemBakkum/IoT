@@ -878,12 +878,12 @@ I used some JavaScript and chart.js to make a chart which displays the data and 
 
 ## Referance
 
-1. [Door sensor.](http://www.instructables.com/id/Magnetic-Door-Sensor-and-Arduino/?ALLSTEPS) This link helped me to start this project. This manual described how you can turn a led on or off depending if the door is opened or closed. Great link to get you started and now it is basically the foundation of my alarm.
+1. [Door sensor:](http://www.instructables.com/id/Magnetic-Door-Sensor-and-Arduino/?ALLSTEPS) This link helped me to start this project. This manual described how you can turn a led on or off depending if the door is opened or closed. Great link to get you started and now it is basically the foundation of my alarm.
 
-2. [Melody.](https://www.arduino.cc/en/tutorial/melody) This link helped me to let my buzzer play a sound. It is a standard code I found at the arduino website and this is the sound you here when my alarm goes off. 
+2. [Melody:](https://www.arduino.cc/en/tutorial/melody) This link helped me to let my buzzer play a sound. It is a standard code I found at the arduino website and this is the sound you here when my alarm goes off. 
 
-3. [Wifi](https://github.com/esp8266/Arduino/blob/master/libraries/ESP8266WiFi/examples/WiFiClientBasic/WiFiClientBasic.ino) This link helped me set up my WiFi connection from the NodeMCU to the hotspot I made with my smartphone. Without this piece of code my connection to the server wouldn't even be possible. 
+3. [Wifi:](https://github.com/esp8266/Arduino/blob/master/libraries/ESP8266WiFi/examples/WiFiClientBasic/WiFiClientBasic.ino) This link helped me set up my WiFi connection from the NodeMCU to the hotspot I made with my smartphone. Without this piece of code my connection to the server wouldn't even be possible. 
 
-4. [HTTP](https://github.com/esp8266/Arduino/blob/master/libraries/ESP8266HTTPClient/examples/BasicHttpClient/BasicHttpClient.ino) This link helped me set up the POST and GET request I needed to do to the server. Without this library and the example code I wouldn't be able to let my project rely on user input.
+4. [HTTP:](https://github.com/esp8266/Arduino/blob/master/libraries/ESP8266HTTPClient/examples/BasicHttpClient/BasicHttpClient.ino) This link helped me set up the POST and GET request I needed to do to the server. Without this library and the example code I wouldn't be able to let my project rely on user input.
 
-5. [JSON](https://github.com/bblanchon/ArduinoJson/blob/master/examples/JsonParserExample/JsonParserExample.ino) This link helped me decode the door.json value in my NodeMCU code to a string. Thanks to this library the user can turn of the alarm in the browser and my NodeMCU can react to this via the GET request.
+5. [JSON:](https://github.com/bblanchon/ArduinoJson/blob/master/examples/JsonParserExample/JsonParserExample.ino) This link helped me decode the door.json value in my NodeMCU code to a string. Thanks to this library the user can turn of the alarm in the browser and my NodeMCU can react to this via the GET request.
