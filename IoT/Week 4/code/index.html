@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8 />
+	<title>Dashboard</title>
+	<link rel="stylesheet" type="text/css" media="screen" href="static/stylesheets/style.css" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Poppins:300,700' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></script>
+	<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+<body>
+    
+    <div class="wrapper">
+    
+        <div class="sidebar">
+            <nav class="navigation">
+                <h1 class="navTitle">Tuapp</h1>
+                <ul class="nav-ul">
+                    <span class="ulTitle">navigation</span>
+                    <a class="navLink" href="#">
+                        <li class="navigationLi"><img class="navIcon" src="static/images/icons/home.svg"><span class="navText">Home</span></li>    
+                    </a>
+                    <a class="navLink" href="#">
+                        <li class="navigationLi"><img class="navIcon" src="static/images/icons/settings.svg"><span class="navText">Settings</span></li>    
+                    </a>
+                    <a class="navLink" href="#">
+                        <li class="navigationLi"><img class="navIcon" src="static/images/icons/users.svg"><span class="navText">People</span></li>    
+                    </a>
+                </ul>
+                <ul class="nav-ul logout">
+                    <span class="ulTitle">logout</span>
+                    <a class="navLink" href="#">
+                        <li class="navigationLi"><img class="navIcon" src="static/images/icons/logout.svg"><span class="navText">Logout</span></li>    
+                    </a>
+                </ul>
+
+            </nav>
+            
+        </div>
+    
+        <div class="content isOpen" id="content">
+
+            <div class="menuBtn" id="menuBtn1"><img src="static/images/icons/arrow.svg" class="menuBtnArrow menuBtnRotate" id="menuBtnArrow"></div>
+
+            <h1 class="sectionTitle">Dashboard</h1>
+
+            <article class="full-width-col">
+                <ul class="statsMenu">
+                    <a href=""><li style="border-bottom: 3px solid #354052;">Day</li></a>
+                    <a href=""><li>Week</li></a>
+                    <a href=""><li>Month</li></a>
+                    <a href=""><li>Year</li></a>
+                </ul>
+                <canvas id="myChart" width="1100" height="400"></canvas>
+            </article>
+
+            <div class="one-third-col">
+
+
+            </div>
+            
+            <div class="one-third-col">
+
+
+            </div>
+            
+            <div class="one-third-col">
+
+
+            </div>
+
+        </div>
+    
+<!--        <div class="rightSide"></div>-->
+ 
+    </div>
+</body>
+
+<script>
+
+   var data = {
+       labels: ["January", "February", "March", "April", "May", "June", "July"],
+       datasets: [
+       {
+         label: "My First dataset",
+            fillColor: "rgba(220,220,220,0.2)",
+            strokeColor: "rgba(220,220,220,1)",
+            pointColor: "rgba(220,220,220,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(220,220,220,1)",
+            data: [65, 59, 80, 81, 56, 55, 40]
+       },
+        {
+            label: "My Second dataset",
+            fillColor: "rgba(151,187,205,0.2)",
+            strokeColor: "rgba(151,187,205,1)",
+            pointColor: "rgba(151,187,205,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(151,187,205,1)",
+            data: [28, 48, 40, 19, 86, 27, 90]
+        }
+       ]
+     };
+
+     var ctx = document.getElementById("myChart").getContext("2d");
+     var myLineChart = new Chart(ctx).Line(data);
+
+    </script>
+    
+    <script src="static/js/app.js"></script>
+    <script src="static/js/Chart.js"></script>
+    
+</html>

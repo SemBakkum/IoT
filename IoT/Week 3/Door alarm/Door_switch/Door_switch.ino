@@ -120,8 +120,6 @@ void setup() {
   pinMode(speakerPin, OUTPUT);
   
   Serial.begin(9600);
-
-  String postStr = "";
   delay(10);
   Serial.print("Connecting to ");
   Serial.println(ssid);
